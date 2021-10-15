@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <!-- Github -->
+  <remote  name="github"
+           fetch="https://github.com/" />
+
+  <!-- GitHub (BubbleGumOS) -->
+  <remote  name="bubblegum"
+           fetch="https://github.com/BubbleGumOS/"
+           revision="12" />
+
+  <!-- Rootdir -->
+  <project path="bionic" name="android_bionic" groups="pdk" remote="bubblegum" />
+  <project path="manifest" name="android_manifest" remote="bubblegum" />
+
+  <!-- Bootable -->
+  <project path="bootable/recovery" name="android_bootable_recovery" groups="pdk" remote="bubblegum" />
+
+  <!-- Build -->
+  <project path="build/make" name="android_build" groups="pdk" remote="bubblegum" >
+    <copyfile src="core/root.mk" dest="Makefile" />
+    <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
+    <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
+    <linkfile src="core" dest="build/core" />
+    <linkfile src="envsetup.sh" dest="build/envsetup.sh" />
+    <linkfile src="target" dest="build/target" />
+    <linkfile src="tools" dest="build/tools" />
+  </project>
+  <project path="build/soong" name="android_build_soong" groups="pdk,tradefed" remote="bubblegum" >
+    <linkfile src="root.bp" dest="Android.bp" />
+    <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
+  </project>
+
+  <!-- Device -->
+  <project path="device/bubblegum/sepolicy" name="android_device_bubblegum_sepolicy" remote="bubblegum" />
+  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" groups="qcom,pdk-qcom" remote="bubblegum" />
+  <project path="device/qcom/sepolicy_vndr" name="android_device_qcom_sepolicy_vndr" groups="qcom,pdk-qcom" remote="bubblegum" />
+  <project path="device/qcom/sepolicy-legacy" name="android_device_qcom_sepolicy" groups="qcom,pdk-qcom" revision="12-legacy" remote="bubblegum" />
+  <project path="device/qcom/sepolicy-legacy-um" name="android_device_qcom_sepolicy" groups="qcom,pdk-qcom" revision="12-legacy-um" remote="bubblegum" />
+
+  <!-- External -->
+  <project path="external/e2fsprogs" name="android_external_e2fsprogs" groups="pdk" remote="bubblegum" />
+  <project path="external/gptfdisk" name="android_external_gptfdisk" groups="pdk" remote="bubblegum" />
+  <project path="external/mksh" name="android_external_mksh" groups="pdk" remote="bubblegum" />
+  <project path="external/selinux" name="android_external_selinux" groups="pdk" remote="bubblegum" />
+  <project path="external/tinycompress" name="android_external_tinycompress" groups="pdk" remote="bubblegum" />
+
+  <!-- Frameworks -->
+  <project path="frameworks/av" name="android_frameworks_av" remote="bubblegum" />
+  <project path="frameworks/base" name="android_frameworks_base" groups="pdk-cw-fs,pdk-fs" remote="bubblegum" />
+  <project path="frameworks/libs/systemui" name="android_frameworks_libs_systemui" remote="bubblegum" />
+  <project path="frameworks/native" name="android_frameworks_native" groups="pdk-cw-fs,pdk-fs" remote="bubblegum" />
+  <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="bubblegum" />
+
+  <!-- Hardware -->
+  <project path="hardware/interfaces" name="android_hardware_interfaces" remote="bubblegum" />
+  <project path="hardware/lineage/interfaces" name="android_hardware_lineage_interfaces" remote="bubblegum" />
+  <project path="hardware/libhardware" name="android_hardware_libhardware" groups="pdk" remote="bubblegum" />
+
+  <!-- Packages -->
+  <project path="packages/apps/DocumentsUI" name="android_packages_apps_DocumentsUI" remote="bubblegum" />
+  <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="bubblegum" />
+  <project path="packages/apps/SettingsIntelligence" name="android_packages_apps_SettingsIntelligence" remote="bubblegum" />
+  <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="bubblegum" />
+  <project path="packages/services/Telephony" name="android_packages_services_Telephony" remote="bubblegum" />
+
+  <!-- System -->
+  <project path="system/core" name="android_system_core" groups="pdk" remote="bubblegum" />
+  <project path="system/netd" name="android_system_netd" remote="bubblegum" />
+  <project path="system/sepolicy" name="android_system_sepolicy" remote="bubblegum" />
+  <project path="system/tools/mkbootimg" name="android_system_tools_mkbootimg" remote="bubblegum" />
+  <project path="system/update_engine" name="android_system_update_engine" remote="bubblegum" />
+  <project path="system/vold" name="android_system_vold" groups="pdk" remote="bubblegum" />
+
+  <!-- Vendor -->
+  <project path="vendor/bubblegum" name="android_vendor_bubblegum" remote="bubblegum" />
+  <project path="vendor/qcom/opensource/power" name="android_vendor_qcom_opensource_power" groups="qcom,pdk-qcom" remote="bubblegum" />
+  <project path="vendor/qcom/opensource/vibrator" name="android_vendor_qcom_opensource_vibrator" groups="qcom,pdk-qcom" remote="bubblegum" />
+
+</manifest>

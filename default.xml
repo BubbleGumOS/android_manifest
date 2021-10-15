@@ -1092,4 +1092,9 @@
 
   <repo-hooks in-project="platform/tools/repohooks" enabled-list="pre-upload" />
 
+  <!-- BubbleGumOS -->
+  <include name="remove.xml" />
+  <include name="bubblegum.xml" />
+  <include name="lineage.xml" />
+
 </manifest>
